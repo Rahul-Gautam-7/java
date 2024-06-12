@@ -4,8 +4,6 @@ public class Automorphic {
     {
         int square = num *num;
         
-       
-        
         while (num>0) {
 
             if(num%10 !=square%10)
