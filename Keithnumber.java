@@ -5,26 +5,43 @@ public class Keithnumber {
 
     public static void keith(int num)
     {
-        Queue<Integer> q = new LinkedList<>();
-        int rem,temp=num;
+       ArrayList<Integer> lst = new ArrayList<>();
+        int ndigit=0,temp=num;
         while(temp>0)
         {
-            rem = temp%10;
-           q.add(rem);
-           temp/=10;
+            lst.add(temp%10);
+            temp/=10;
+            ndigit++;
         }
-        while(num != og)
-        {
-           int og = q.peek();
-           q.remove();
-           
+        Collections.reverse(lst);
 
+        int nxt =0,i=ndigit;
+        while (nxt<num) 
+        {
+            nxt =0;
+            for(int j=1;j<=ndigit;j++)
+            {
+                nxt+=lst.get(i-j);
+                System.out.print(lst.get(i-j)+" ");
+            }
+            lst.add(nxt);
+            i++;
         }
+        if(nxt == num)
+        {
+            System.out.println("keith number");
+        }
+        else
+        {
+            System.out.println("not a keith number");
+        }
+       
 
     }
 
 
     public static void main(String[] args) {
         int num = 19;
+        keith(num);
     }
 }
